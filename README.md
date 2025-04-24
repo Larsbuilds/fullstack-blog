@@ -23,7 +23,11 @@ fullstack-blog/
 │   ├── package.json
 │   └── tailwind.config.js
 └── backend/           # Node.js backend application
-    └── (to be implemented)
+    ├── crudOperations.js
+    ├── index.js
+    ├── package-lock.json
+    └── package.json
+
 ```
 
 ## Frontend Setup
@@ -88,7 +92,7 @@ The frontend will be available at [http://localhost:5173](http://localhost:5173)
 
 - Node.js
 - PostgreSQL
-- Express.js (planned)
+- Neon database
 
 ## Development Guidelines
 
