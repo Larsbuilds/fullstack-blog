@@ -26,7 +26,8 @@ fullstack-blog/
     ├── crudOperations.js
     ├── index.js
     ├── package-lock.json
-    └── package.json
+    ├── package.json
+    └── utils.js
 
 ```
 
