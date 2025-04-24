@@ -22,7 +22,7 @@ fullstack-blog/
 │   │   └── index.css
 │   ├── package.json
 │   └── tailwind.config.js
-└── backend/           # Node.js backend application
+└── backend app/           # Node.js backend application
     ├── crudOperations.js
     ├── index.js
     ├── package-lock.json
