@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const EditPost = () => {
   const { id } = useParams();
@@ -90,13 +90,28 @@ const EditPost = () => {
           onChange={handleChange}
           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
         />
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
+        <div className="flex justify-end space-x-4">
+          <button
+            type="submit"
+            disabled={loading}
+            className="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-900 transition"
+          >
+            {loading ? "Updating..." : "Update"}
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate(`/posts/${id}`)}
+            className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition"
+          >
+            Cancel
+          </button>
+        </div>
+        <Link
+          to={`http://localhost:5173/posts/${id}`}
+          className="text-blue-600 hover:underline mb-4 inline-block"
         >
-          {loading ? "Updating..." : "Update Post"}
-        </button>
+          ← Back
+        </Link>
       </form>
     </div>
   );
