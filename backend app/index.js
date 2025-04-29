@@ -38,16 +38,13 @@ const requestHandler = async (req, res) => {
 
   if (url === resource) {
     if (method === "GET") return await getPosts(req, res);
-    if (method === "POST")
-      return requireAuth(req, res, () => createPost(req, res));
+    if (method === "POST") return await createPost(req, res);
     // Require authentication for creating a post
     else return returnErrorWithMessage(res, 405, "Method Not Allowed");
   } else if (regex(resource).test(url)) {
     if (method === "GET") return await getPostById(req, res);
-    if (method === "PUT")
-      return requireAuth(req, res, () => updatePost(req, res)); // Require authentication for updating a post
-    if (method === "DELETE")
-      return requireAuth(req, res, () => deletePost(req, res));
+    if (method === "PUT") return await updatePost(req, res); // Require authentication for updating a post
+    if (method === "DELETE") return await deletePost(req, res);
     // Require authentication for deleting a post
     else return returnErrorWithMessage(res, 405, "Method Not Allowed");
   } else {
