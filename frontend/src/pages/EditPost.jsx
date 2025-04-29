@@ -7,7 +7,7 @@ const EditPost = () => {
   const [form, setForm] = useState({
     title: "",
     content: "",
-    coverUrl: "",
+    cover: "",
     author: "",
     location: "",
     category: "",
@@ -40,7 +40,7 @@ const EditPost = () => {
     if (
       !form.title ||
       !form.author ||
-      !form.coverUrl ||
+      !form.cover ||
       !form.location ||
       !form.category ||
       !form.date ||
@@ -69,7 +69,7 @@ const EditPost = () => {
     <div className="max-w-2xl mx-auto mt-10 p-8 bg-white shadow-md rounded-md">
       <h2 className="text-2xl font-semibold mb-6">Edit Post</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        {["title", "author", "coverUrl", "location", "category", "date"].map(
+        {["title", "author", "cover", "location", "category", "date"].map(
           (name) => (
             <input
               key={name}
