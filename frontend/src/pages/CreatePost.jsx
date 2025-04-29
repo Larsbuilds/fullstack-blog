@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -21,29 +22,19 @@ const CreatePost = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const validateForm = () => {
-    const requiredFields = [
-      "title",
-      "content",
-      "coverUrl",
-      "author",
-      "location",
-      "category",
-      "date",
-    ];
-    for (let field of requiredFields) {
-      if (!form[field]) {
-        setError(`"${field}" is required.`);
-        return false;
-      }
-    }
-    setError("");
-    return true;
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    if (
+      !form.title ||
+      !form.author ||
+      !form.coverUrl ||
+      !form.location ||
+      !form.category ||
+      !form.date ||
+      !form.content
+    ) {
+      return alert("Please fill in all fields");
+    }
 
     setLoading(true);
     try {
@@ -53,7 +44,7 @@ const CreatePost = () => {
       });
       navigate("/");
     } catch (err) {
-      setError(`Failed to create post: ${error.message}`);
+      alert(`Failed to create post: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -91,7 +82,6 @@ const CreatePost = () => {
           onChange={handleChange}
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
         />
-        {error && <p className="text-red-600">{error}</p>}
         <div className="flex justify-end space-x-4">
           <button
             type="submit"
