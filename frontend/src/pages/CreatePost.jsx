@@ -7,7 +7,7 @@ const CreatePost = () => {
   const [form, setForm] = useState({
     title: "",
     content: "",
-    coverUrl: "",
+    cover: "",
     author: "",
     location: "",
     category: "",
@@ -27,7 +27,7 @@ const CreatePost = () => {
     if (
       !form.title ||
       !form.author ||
-      !form.coverUrl ||
+      !form.cover ||
       !form.location ||
       !form.category ||
       !form.date ||
@@ -59,7 +59,7 @@ const CreatePost = () => {
         {[
           { name: "title", placeholder: "Title" },
           { name: "author", placeholder: "Author" },
-          { name: "coverUrl", placeholder: "Cover Image URL" },
+          { name: "cover", placeholder: "Cover Image URL" },
           { name: "location", placeholder: "Location" },
           { name: "category", placeholder: "Category" },
           { name: "date", placeholder: "Date (YYYY-MM-DD)", type: "date" },

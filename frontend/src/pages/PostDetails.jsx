@@ -58,7 +58,7 @@ const PostDetails = () => {
     <div className="max-w-3xl mx-auto py-10 px-6">
       <div className="bg-white shadow rounded-md overflow-hidden">
         <img
-          src={post.coverUrl}
+          src={post.cover}
           alt={post.title}
           className="w-full h-64 object-cover"
         />
@@ -76,7 +76,7 @@ const PostDetails = () => {
 
           <div className="flex justify-end space-x-4">
             <Link
-              to={`http://localhost:3000/edit/${post.id}`}
+              to={`http://localhost:5173/edit/${post.id}`}
               className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900"
             >
               Edit
