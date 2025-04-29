@@ -1,3 +1,6 @@
+// Import dotenv and configure it
+import 'dotenv/config';
+
 // Bring in the http module
 import http from "http";
 // Import CRUD operations
